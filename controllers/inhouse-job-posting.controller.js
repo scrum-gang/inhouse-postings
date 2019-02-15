@@ -26,3 +26,27 @@ exports.posting_create = function (req, res) {
         res.send('Posting Created successfully')
     })
 };
+
+// Read Posting by id
+exports.posting_details = function (req, res) {
+    Posting.findById(req.params.id, function (err, posting) {
+        if (err) return next(err);
+        res.send(posting);
+    })
+};
+
+// Update Posting by id
+exports.posting_update = function (req, res) {
+    Posting.findByIdAndUpdate(req.params.id, {$set: req.body}, function (err, posting) {
+        if (err) return next(err);
+        res.send('Posting udpated.');
+    });
+};
+
+// Delete by id
+exports.posting_delete = function (req, res) {
+    Posting.findByIdAndRemove(req.params.id, function (err) {
+        if (err) return next(err);
+        res.send('Deleted successfully!');
+    })
+};
