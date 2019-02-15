@@ -2,9 +2,13 @@ const express = require('express');
 const router = express.Router();
 
 // Require the controllers
-const product_controller = require('../controllers/inhouse-job-posting.controller');
+const posting_controller = require('../controllers/inhouse-job-posting.controller');
 
 
-// a simple test url to check that all of our files are communicating correctly.
-router.get('/test', product_controller.test);
+// A simple test url to check that all of our files are communicating correctly.
+router.get('/test', posting_controller.test);
+
+//Create posting
+router.post('/create', posting_controller.posting_create);
+
 module.exports = router;
