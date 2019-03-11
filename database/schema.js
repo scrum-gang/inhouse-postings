@@ -3,6 +3,10 @@ const Schema = mongoose.Schema;
 
 //create posting schema and model
 const PostingSchema = new Schema({
+    id:{
+        type: int,
+        required: [true, 'Unique identifier field is required']
+    },
     recruiter:{
         type: String,
         required: [true, 'Name field is required']
@@ -30,6 +34,17 @@ const PostingSchema = new Schema({
     company:{
         type: String,
         required: [true, 'Company field is required']
+    },
+    start_date:{
+        type: String,
+        required: [true, 'Start date field is required']
+    },
+    end_date:{
+        type: String
+    },
+    posting_date:{
+        type: String,
+        required: [true, 'Posting date field is required']
     }
 });
 
