@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 let PostingSchema = new Schema({
     id:{
-        type: int,
+        type: Number,
         required: [true, 'Unique identifier field is required']
     },
     recruiter:{
@@ -23,7 +23,7 @@ let PostingSchema = new Schema({
         required: [true, 'Location field is required']
     },
     salary:{
-        type: int,
+        type: Number,
         required: [true, 'Salary field is required']
     },
     requirements:{
