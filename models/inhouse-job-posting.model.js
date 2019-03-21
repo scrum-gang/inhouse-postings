@@ -2,8 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let PostingSchema = new Schema({
-    id:{
+    posting_id:{
         type: Number,
+        unique: true,
         required: [true, 'Unique identifier field is required']
     },
     recruiter:{

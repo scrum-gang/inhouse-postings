@@ -12,12 +12,15 @@ router.get('/test', posting_controller.test);
 router.post('/create', posting_controller.posting_create);
 
 //Read by id
-router.get('/:id', posting_controller.posting_details);
+router.get('/:posting_id', posting_controller.posting_details);
 
 //Update by id
 router.put('/:id/update', posting_controller.posting_update);
 
 //Delete by id
 router.delete('/:id/delete', posting_controller.posting_delete);
+
+//Get all postings for a recruiter
+router.get('/recruiter/:recruiter', posting_controller.posting_details_by_recruiter);
 
 module.exports = router;
