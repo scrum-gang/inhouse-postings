@@ -9,7 +9,6 @@ exports.test = function (req, res) {
 exports.posting_create = function (req, res) {
     let posting = new Posting(
         {
-            posting_id: req.body.posting_id,
             recruiter: req.body.recruiter,
             title: req.body.title,
             description: req.body.description,
@@ -25,15 +24,16 @@ exports.posting_create = function (req, res) {
 
     posting.save(function (err) {
         if (err) {
+            res.send(err);
             return next(err);
         }
         res.send('Posting Created successfully')
     })
 };
 
-// Get Posting by posting_id
+// Get Posting by id
 exports.posting_details = function (req, res) {
-    Posting.find({posting_id: req.params.posting_id}, function (err, posting) {
+    Posting.findById(req.params.id, function (err, posting) {
         if (err) return next(err);
         res.send(posting);
     })
@@ -60,5 +60,13 @@ exports.posting_details_by_recruiter = function (req, res) {
     Posting.find({recruiter: req.params.recruiter}, function (err, posting) {
         if (err) return next(err);
         res.send(posting);
+    })
+};
+
+// Drop all records
+exports.drop_all = function (req, res) {
+    Posting.remove({}, function (err) {
+        if (err) return next(err);
+        res.send('Deleted all records successfully!');
     })
 };

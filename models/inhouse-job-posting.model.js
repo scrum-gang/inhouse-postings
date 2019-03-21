@@ -2,11 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let PostingSchema = new Schema({
-    posting_id:{
-        type: Number,
-        unique: true,
-        required: [true, 'Unique identifier field is required']
-    },
+    
     recruiter:{
         type: String,
         required: [true, 'Name field is required']
