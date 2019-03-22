@@ -91,7 +91,7 @@ exports.posting_details_by_recruiter = function (req, res) {
 exports.postings = function (req, res) {
     Posting.find({}, function (err, posting) {
         if (err) return next(err);
-        res.json(posting);
+        console.log(posting);
     })
 };
 
