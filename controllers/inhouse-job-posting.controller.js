@@ -88,7 +88,7 @@ exports.posting_details_by_recruiter = function (req, res) {
 };
 
 // Get all postings from DB
-exports.postings = function (req, res) {6
+exports.postings = function (req, res) {
     Posting.find({}, function (err, posting) {
         if (err) return next(err);
         res.json(posting);
