@@ -18,7 +18,7 @@ router.get('/:id', posting_controller.posting_details);
 router.get('/recruiter/:recruiter', posting_controller.posting_details_by_recruiter);
 
 //Get all postings 
-router.get('/postings', posting_controller.postings);
+router.get('/allpostings', posting_controller.all_postings);
 
 
 /*------------
