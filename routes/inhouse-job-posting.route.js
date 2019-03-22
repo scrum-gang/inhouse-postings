@@ -12,7 +12,7 @@ router.get('/test', posting_controller.test);
 GET ROUTES
 -------------*/
 //Get by id
-router.get('id/:id', posting_controller.posting_details);
+router.get('/id/:id', posting_controller.posting_details);
 
 //Get all postings for a recruiter
 router.get('/recruiter/:recruiter', posting_controller.posting_details_by_recruiter);
