@@ -41,6 +41,10 @@ let PostingSchema = new Schema({
     posting_date:{
         type: String,
         required: [true, 'Posting date field is required']
+    },
+    deadline:{
+        type: String,
+        required: [true, 'Deadline field is required']
     }
 });
 
