@@ -8,22 +8,41 @@ const posting_controller = require('../controllers/inhouse-job-posting.controlle
 // A simple test url to check that all of our files are communicating correctly.
 router.get('/test', posting_controller.test);
 
-//Create posting
-router.post('/create', posting_controller.posting_create);
-
-//Read by id
+/*------------
+GET ROUTES
+-------------*/
+//Get by id
 router.get('/:id', posting_controller.posting_details);
-
-//Update by id
-router.put('/:id/update', posting_controller.posting_update);
-
-//Delete by id
-router.delete('/:id/delete', posting_controller.posting_delete);
 
 //Get all postings for a recruiter
 router.get('/recruiter/:recruiter', posting_controller.posting_details_by_recruiter);
 
-// Drop all records
+//Get all postings 
+router.get('/postings', posting_controller.postings);
+
+
+/*------------
+POST ROUTES
+-------------*/
+//Create posting
+router.post('/create', posting_controller.posting_create);
+
+
+/*------------
+PUT ROUTES
+-------------*/
+//Update by id
+router.put('/:id/update', posting_controller.posting_update);
+
+
+/*-------------
+DELETE ROUTES
+--------------*/
+//Delete by id
+router.delete('/:id/delete', posting_controller.posting_delete);
+
+// Drop all records 
 router.delete('/dropall', posting_controller.drop_all)
+
 
 module.exports = router;
