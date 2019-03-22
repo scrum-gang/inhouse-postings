@@ -88,12 +88,11 @@ exports.posting_details_by_recruiter = function (req, res) {
 };
 
 // Get all postings from DB
-exports.postings = function (req, res) {
-    Posting.find({}, function(err,posting) {
+exports.postings = function (req, res) {6
+    Posting.find({}, function (err, posting) {
         if (err) return next(err);
-        res.send(posting);
+        res.json(posting);
     })
-
 };
 
 // Drop all records
