@@ -43,7 +43,7 @@ exports.posting_create = function (req, res) {
             start_date: req.body.start_date,
             end_date: req.body.end_date,
             posting_date: getDateTime(),
-            deadline: req.body.dealine
+            deadline: req.body.deadline
         }
     );
 
