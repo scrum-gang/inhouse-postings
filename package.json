@@ -4,7 +4,7 @@
   "description": "Inhouse Job Posting Back-End Server",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js", 
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +19,7 @@
   "homepage": "https://github.com/scrum-gang/inhouse-postings#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "mongoose": "^5.4.12"
   }
