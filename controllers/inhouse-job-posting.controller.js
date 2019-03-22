@@ -42,7 +42,8 @@ exports.posting_create = function (req, res) {
             company: req.body.company,
             start_date: req.body.start_date,
             end_date: req.body.end_date,
-            posting_date: getDateTime()
+            posting_date: getDateTime(),
+            deadline: req.body.dealine
         }
     );
 
