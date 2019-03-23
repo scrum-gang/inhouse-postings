@@ -56,56 +56,76 @@ exports.posting_create = async function (req, res) {
     posting.save(function (err) {
         if (err) {
             res.send(err);
-            return next(err);
+        } else {
+            res.send(posting)
         }
-        res.send(posting)
-    });
+        
+    })
 };
 
 // Get Posting by id
 exports.posting_details = function (req, res) {
     Posting.findById(req.params.id, function (err, posting) {
-        if (err) return next(err);
-        res.send(posting);
+        if (err){
+            res.send(err);
+        } else {
+            res.send(posting);
+        }  
     })
 };
 
 // Update Posting by id
 exports.posting_update = function (req, res) {
     Posting.findByIdAndUpdate(req.params.id, {$set: req.body}, function (err, posting) {
-        if (err) return next(err);
-        res.send('Posting udpated.');
+        if (err){
+            res.send(err);
+        } else {
+            res.send('Posting udpated.');
+        }  
     });
 };
 
 // Delete by id
 exports.posting_delete = function (req, res) {
     Posting.findByIdAndRemove(req.params.id, function (err) {
-        if (err) return next(err);
-        res.send('Deleted successfully!');
+        if (err){
+            res.send(err);
+        } else {
+            res.send('Deleted successfully!');
+        }  
     })
 };
 
 // Get all postings from a recruiter
 exports.posting_details_by_recruiter = function (req, res) {
     Posting.find({recruiter: req.params.recruiter}, function (err, posting) {
-        if (err) return next(err);
-        res.send(posting);
+        if (err){
+            res.send(err);
+        } else {
+            res.send(posting);
+        }  
     })
 };
 
 // Get all postings from DB
 exports.all_postings = function (req, res) {
     Posting.find({}, function (err, posting) {
-        if (err) return next(err);
-        res.send(posting);
+        if (err){
+            res.send(err);
+        } else {
+            res.send(posting);
+        }
+        
     })
 };
 
 // Drop all records
 exports.drop_all = function (req, res) {
     Posting.remove({}, function (err) {
-        if (err) return next(err);
-        res.send('Deleted all records successfully!');
+        if (err) {
+            res.send(err);
+        } else {
+            res.send('Deleted all records successfully!');
+        }
     })
 };
