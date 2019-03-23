@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-export function auth_user_recruiter(req) {
+module.exports = function auth_user_recruiter(req) {
     if (!req.header.Authorization) return false;
 
     const options = {
@@ -15,7 +15,7 @@ export function auth_user_recruiter(req) {
     return axios(options);
 }
 
-export function auth_user_applicant(req) {
+module.exports = function auth_user_applicant(req) {
     const options = {
       method: "get",
       headers:{
