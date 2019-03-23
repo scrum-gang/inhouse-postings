@@ -10,6 +10,7 @@ router.get('/test', posting_controller.test);
 
 /*------------
 GET ROUTES
+applicant and recruiter access
 -------------*/
 //Get by id
 router.get('/id/:id', posting_controller.posting_details);
@@ -22,7 +23,8 @@ router.get('/allpostings', posting_controller.all_postings);
 
 
 /*------------
-POST ROUTES
+POST ROUTES 
+only recruiter can access
 -------------*/
 //Create posting
 router.post('/create', posting_controller.posting_create);
@@ -30,13 +32,15 @@ router.post('/create', posting_controller.posting_create);
 
 /*------------
 PUT ROUTES
+only recruiter can access
 -------------*/
 //Update by id
-router.put('/:id/', posting_controller.posting_update);
+router.put('/:id', posting_controller.posting_update);
 
 
 /*-------------
 DELETE ROUTES
+only recruiter can access
 --------------*/
 //Delete by id
 router.delete('/id/:id', posting_controller.posting_delete);

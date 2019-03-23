@@ -1,13 +1,21 @@
 const Posting = require('../models/inhouse-job-posting.model');
+const {auth_user_applicant, auth_user_recruiter} = require('../authentication/inhouse-job-posting.auth')
 
+const RECRUITER = "Recruiter";
+const APPLICANT = "Applicant";
 //Simple version, without validation or sanitation
 exports.test = function (req, res) {
     res.send('Greetings from the Test controller!');
 };
 
 // Create Posting
-exports.posting_create = function (req, res) {
+exports.posting_create = async function (req, res) {
+    const authorized = await auth_user_recruiter(req).then(response => response.body.type === RECRUITER);
 
+    if (!authorized) {
+        res.json({"message": "User not an authorized recruiter."});
+        return;
+    }
     function getDateTime() {
         var date = new Date();
 
@@ -31,21 +39,19 @@ exports.posting_create = function (req, res) {
         return year + ":" + month + ":" + day + ":" + hour + ":" + min + ":" + sec;
     }
 
-    let posting = new Posting(
-        {
-            recruiter: req.body.recruiter,
-            title: req.body.title,
-            description: req.body.description,
-            location: req.body.location,
-            salary: req.body.salary,
-            requirements: req.body.requirements,
-            company: req.body.company,
-            start_date: req.body.start_date,
-            end_date: req.body.end_date,
-            posting_date: getDateTime(),
-            deadline: req.body.deadline
-        }
-    );
+    let posting = new Posting({
+        recruiter: req.body.recruiter,
+        title: req.body.title,
+        description: req.body.description,
+        location: req.body.location,
+        salary: req.body.salary,
+        requirements: req.body.requirements,
+        company: req.body.company,
+        start_date: req.body.start_date,
+        end_date: req.body.end_date,
+        posting_date: getDateTime(),
+        deadline: req.body.deadline
+    });
 
     posting.save(function (err) {
         if (err) {
@@ -53,7 +59,7 @@ exports.posting_create = function (req, res) {
             return next(err);
         }
         res.send(posting)
-    })
+    });
 };
 
 // Get Posting by id
