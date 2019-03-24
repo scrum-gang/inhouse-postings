@@ -8,9 +8,9 @@
     }
   ],
   "env": {
-    "MONGODB_URI": {
+    "MONGODB_URI": "mongodb://heroku_09tw7rg6:ikv62lrdd0umhhfnpte7b883at@ds111851.mlab.com:11851/heroku_09tw7rg6",
       "required": true
-    }
+    
   },
   "formation": {
     "web": {
