@@ -4,7 +4,7 @@ node_js:
   - "stable"
 
 script:
-  - echo "skipping tests"
+  - npm test
 cache:
   directories:
     - "node_modules"
