@@ -1,5 +1,5 @@
 const Posting = require('../models/inhouse-job-posting.model');
-const {auth_user_applicant, auth_user_recruiter} = require('../authentication/inhouse-job-posting.auth')
+const auth = require('../authentication/inhouse-job-posting.auth')
 
 const RECRUITER = "Recruiter";
 const APPLICANT = "Applicant";
@@ -10,15 +10,15 @@ exports.test = function (req, res) {
 
 // Create Posting
 //exports.posting_create = async function (req, res) {
-exports.posting_create = function (req, res) {
+exports.posting_create = async function (req, res) {
     
     //authentication
-    /*const authorized = await auth_user_recruiter(req).then(response => response.body.type === RECRUITER);
+    const authorized = await auth.auth_user_recruiter(req).then(response => response.body.type === RECRUITER);
 
     if (!authorized) {
         res.json({"message": "User not an authorized recruiter."});
         return;
-    }*/
+    }
     function getDateTime() {
         var date = new Date();
 

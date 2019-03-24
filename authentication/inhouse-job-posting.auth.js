@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-function auth_user_recruiter(req) {
+methods.auth_user_recruiter = function(req) {
     if (!req.headers.Authorization) return false;
 
     const options = {
@@ -13,9 +13,9 @@ function auth_user_recruiter(req) {
     };
 
     return axios(options);
-}
+};
 
-function auth_user_applicant(req) {
+methods.auth_user_applicant = function(req) {
     const options = {
       method: "get",
       headers:{
@@ -25,6 +25,6 @@ function auth_user_applicant(req) {
       url: "https://jobhub-authentication-staging.herokuapp.com/users/self"
     };
     return axios(options);
-}
+};
 
-module.export = {auth_user_recruiter, auth_user_applicant}
+module.exports = methods;
