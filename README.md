@@ -51,13 +51,15 @@ There is one Heroku deployments:
 
 | Endpoint | Method | Header | Body | Output |
 |----------|--------|--------|------|--------|
-| `/posting/create`  | POST | Header | Body | Output |
-| `/posting/id/:id`  | GET | Header | Body | Output |
-| `/posting/recruiter/:recruiter`  | GET | Header | Body | Output |
-| `/posting/allpostings`  | GET | Header | Body | Output |
-| `/posting/:id`  | PUT | Header | Body | Output |
-| `/posting/dropall`  | DELETE | Header | Body | Output |
-| `/posting/id/:id`  | DELETE | Header | Body | Output |
+| /posting/create | POST | "Authorization": "Bearer [INSERT_JWT]" | recruiter: String
+title: String
+description: String | Creates a new job posting, returns the posting with the generated id |
+| /posting/id/:id  | GET |  | Body | Output |
+| /posting/recruiter/:recruiter | GET |  | Body | Output |
+| /posting/allpostings| GET |  | Body | Output |
+| /posting/:id | PUT | "Authorization": "Bearer [INSERT_JWT]" | Body | Output |
+| /posting/dropall  | DELETE | "Authorization": "Bearer [INSERT_JWT]" | Body | Output |
+| /posting/id/:id  | DELETE | "Authorization": "Bearer [INSERT_JWT]" | Body | Output |
 
 
 
