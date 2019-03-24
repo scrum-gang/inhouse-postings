@@ -51,13 +51,13 @@ There is one Heroku deployments:
 
 | Endpoint | Method | Header | Body | Output |
 |----------|--------|--------|------|--------|
-| /posting/create | POST | "Authorization": "Bearer [INSERT_JWT]" | recruiter: String,  title: String,  description: String,  location: String,  salary: Number,  requirments: String,  company: String,  start_date: String,  end_date: String,  posting_date: String,  deadline: String  | Creates a new job posting, returns the posting with the generated id |
-| /posting/id/:id  | GET |  | Body | Output |
-| /posting/recruiter/:recruiter | GET |  | Body | Output |
-| /posting/allpostings| GET |  | Body | Output |
-| /posting/:id | PUT | "Authorization": "Bearer [INSERT_JWT]" | Body | Output |
-| /posting/dropall  | DELETE | "Authorization": "Bearer [INSERT_JWT]" | Body | Output |
-| /posting/id/:id  | DELETE | "Authorization": "Bearer [INSERT_JWT]" | Body | Output |
+| /posting/create | POST | "Authorization": "Bearer [INSERT_JWT]" | `recruiter`: String,  `title`: String,  `description`: String,  `location`: String,  `salary`: Number,  `requirments`: String,  `company`: String,  `start_date`: String,  `end_date`: String,  `posting_date`: String,  `deadline`: String  | Creates a new job posting, returns the posting with the generated id |
+| /posting/id/:id  | GET |  |  | Returns the posting with the ID specified in the request |
+| /posting/recruiter/:recruiter | GET |  |  | Returns all postings from the recruiter specified in the request |
+| /posting/allpostings| GET |  |  | Retunrs all the exisiting postings |
+| /posting/:id | PUT | "Authorization": "Bearer [INSERT_JWT]" | `recruiter`: String,  `title`: String,  `description`: String,  `location`: String,  `salary`: Number,  `requirments`: String,  `company`: String,  `start_date`: String,  `end_date`: String,  `posting_date`: String,  `deadline`: String | Updates the posting with the ID from the request and updates the elements in the body that are specified |
+| /posting/dropall  | DELETE | "Authorization": "Bearer [INSERT_JWT]" |  | Deletes all the postings in the collection |
+| /posting/id/:id  | DELETE | "Authorization": "Bearer [INSERT_JWT]" |  | Deletes the posting with the ID from the request |
 
 
 
