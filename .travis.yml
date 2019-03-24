@@ -1,10 +1,13 @@
 language: node_js
-
 node_js:
   - "stable"
-
-script:
-  - npm test
 cache:
   directories:
     - "node_modules"
+script:
+  - npm test
+deploy:
+  provider: heroku
+  app:
+    master: inhouse-jobpostings
+  api_key: 7bf44c07-9a8c-4ecf-b6c3-bd1fe953c3a5
