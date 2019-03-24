@@ -18,13 +18,13 @@ describe('Testing inhouse job posting server', function() {
 
   });
 
-  // GET - List all colors
-  it('should reach the test endpoint', function() {
+  // GET - Should be able to reach test endpoint
+  it('should reach test endpoint', function() {
     return chai.request(app)
       .get('/posting/test')
       .then(function(res) {
         expect(res).to.have.status(200);
-        expect(res.body).to.be.an('object');
       });
   });
+
 });
