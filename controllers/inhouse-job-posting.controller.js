@@ -22,15 +22,6 @@ exports.posting_create = function (req, res) {
     function getDateTime() {
         var date = new Date();
 
-        var hour = date.getHours();
-        hour = (hour < 10 ? "0" : "") + hour;
-    
-        var min  = date.getMinutes();
-        min = (min < 10 ? "0" : "") + min;
-    
-        var sec  = date.getSeconds();
-        sec = (sec < 10 ? "0" : "") + sec;
-    
         var year = date.getFullYear();
     
         var month = date.getMonth() + 1;
@@ -39,7 +30,7 @@ exports.posting_create = function (req, res) {
         var day  = date.getDate();
         day = (day < 10 ? "0" : "") + day;
     
-        return year + "-" + month + "-" + day + "T" + hour + ":" + min + ":" + sec;
+        return year + "-" + month + "-" + day;
     }
 
     let posting = new Posting({
