@@ -51,7 +51,7 @@ There is one Heroku deployments:
 
 | Endpoint | Method | Header | Body | Output |
 |----------|--------|--------|------|--------|
-| /posting/create | POST | "Authorization": "Bearer [INSERT_JWT]" | recruiter: String, title: String, description: String| Creates a new job posting, returns the posting with the generated id |
+| /posting/create | POST | "Authorization": "Bearer [INSERT_JWT]" | recruiter: String,  title: String,  description: String,  location: String,  salary: Number,  requirments: String,  company: String,  start_date: String,  end_date: String,  posting_date: String,  deadline: String  | Creates a new job posting, returns the posting with the generated id |
 | /posting/id/:id  | GET |  | Body | Output |
 | /posting/recruiter/:recruiter | GET |  | Body | Output |
 | /posting/allpostings| GET |  | Body | Output |
