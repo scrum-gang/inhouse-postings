@@ -34,19 +34,32 @@ Each job posting has the following attributes:
 
 ## Getting Started
 
-git clone https://github.com/scrum-gang/inhouse-postings.git
-cd inhouse-postings
-npm install
-npm start
+git clone https://github.com/scrum-gang/inhouse-postings.git  
+cd inhouse-postings  
+npm install  
+npm start  
 
 ## Deployement
 
 Builds are automated using Travis and deployed on Heroku.
 
-There are one Heroku deployments:
+There is one Heroku deployments:
 
 -  <https://inhouse-jobpostings.herokuapp.com/>
 
 ## Endpoints
+
+| Endpoint | Method | Header | Body | Output |
+|----------|--------|--------|------|--------|
+| `/posting/create`  | POST | Header | Body | Output |
+| `/posting/id/:id`  | GET | Header | Body | Output |
+| `/posting/recruiter/:recruiter`  | GET | Header | Body | Output |
+| `/posting/allpostings`  | GET | Header | Body | Output |
+| `/posting/:id`  | PUT | Header | Body | Output |
+| `/posting/dropall`  | DELETE | Header | Body | Output |
+| `/posting/id/:id`  | DELETE | Header | Body | Output |
+
+
+
 
 
