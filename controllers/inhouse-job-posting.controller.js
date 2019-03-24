@@ -1,24 +1,23 @@
 const Posting = require('../models/inhouse-job-posting.model');
-const auth = require('../authentication/inhouse-job-posting.auth')
+const {auth_user_recruiter, auth_user_applicant} = require('../authentication/inhouse-job-posting.auth')
 
 const RECRUITER = "Recruiter";
-const APPLICANT = "Applicant";
+
 //Simple version, without validation or sanitation
 exports.test = function (req, res) {
     res.send('Greetings from the Test controller!');
 };
 
 // Create Posting
-//exports.posting_create = async function (req, res) {
-exports.posting_create =  function (req, res) {
+exports.posting_create =  async function (req, res) {
     
     //authentication
-    /*const authorized = await auth.auth_user_recruiter(req).then(response => response.body.type === RECRUITER);
+    const authorized = await auth_user_recruiter(req).then(response => response.data.type === RECRUITER).catch(() => false);
 
     if (!authorized) {
         res.json({"message": "User not an authorized recruiter."});
         return;
-    }*/
+    }
     function getDateTime() {
         var date = new Date();
 
@@ -69,7 +68,16 @@ exports.posting_details = function (req, res) {
 };
 
 // Update Posting by id
-exports.posting_update = function (req, res) {
+exports.posting_update = async function (req, res) {
+
+    //authentication
+    const authorized = await auth_user_recruiter(req).then(response => response.data.type === RECRUITER).catch(() => false);
+
+    if (!authorized) {
+        res.json({"message": "User not an authorized recruiter."});
+        return;
+    }
+
     Posting.findByIdAndUpdate(req.params.id, {$set: req.body}, function (err, posting) {
         if (err){
             res.send(err);
@@ -80,7 +88,16 @@ exports.posting_update = function (req, res) {
 };
 
 // Delete by id
-exports.posting_delete = function (req, res) {
+exports.posting_delete = async function (req, res) {
+
+    //authentication
+    const authorized = await auth_user_recruiter(req).then(response => response.data.type === RECRUITER).catch(() => false);
+
+    if (!authorized) {
+        res.json({"message": "User not an authorized recruiter."});
+        return;
+    }
+
     Posting.findByIdAndRemove(req.params.id, function (err) {
         if (err){
             res.send(err);
@@ -114,7 +131,16 @@ exports.all_postings = function (req, res) {
 };
 
 // Drop all records
-exports.drop_all = function (req, res) {
+exports.drop_all = async function (req, res) {
+
+    //authentication
+    const authorized = await auth_user_recruiter(req).then(response => response.data.type === RECRUITER).catch(() => false);
+
+    if (!authorized) {
+        res.json({"message": "User not an authorized recruiter."});
+        return;
+    }
+
     Posting.remove({}, function (err) {
         if (err) {
             res.send(err);
