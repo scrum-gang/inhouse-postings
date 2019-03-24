@@ -1,5 +1,7 @@
 const axios = require("axios");
 
+var methods = {};
+
 methods.auth_user_recruiter = function(req) {
     if (!req.headers.Authorization) return false;
 
