@@ -27,16 +27,4 @@ describe('Testing inhouse job posting server', function() {
         expect(res.body).to.be.an('object');
       });
   });
-
-  // GET - Invalid path
-  it('should return Not Found', function() {
-    return chai.request(app)
-      .get('/INVALID_PATH')
-      .then(function(res) {
-        throw new Error('Path exists!');
-      })
-      .catch(function(err) {
-        expect(err).to.have.status(404);
-      });
-  });
 });
