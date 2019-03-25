@@ -1,5 +1,7 @@
 # Inhouse Job Postings - JobHub
 
+[![Build Status](https://travis-ci.com/scrum-gang/inhouse-postings.svg?branch=master)](https://travis-ci.com/scrum-gang/inhouse-postings)
+
 ## Description 
 Provides the recruiter the ability to create and manage postings for applicants to apply.
 
